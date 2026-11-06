@@ -2,7 +2,7 @@ package com.example.pdf2word.ocr
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.rmtheis.tess_two.TessBaseAPI
+import com.googlecode.tesseract.android.TessBaseAPI
 import java.io.File
 import java.io.FileOutputStream
 
