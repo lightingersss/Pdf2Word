@@ -66,7 +66,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.7.0'
 
     implementation 'com.tom-roush:pdfbox-android:2.0.27.0'
-    implementation 'com.googlecode.tesseract.android:tess-two:15.0.0'
+    implementation 'com.rmtheis:tess-two:9.1.0'
 
     implementation('org.apache.poi:poi-ooxml:5.2.5') {
         exclude group: 'org.apache.poi', module: 'poi-ooxml-schemas'
