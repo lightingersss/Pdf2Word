@@ -60,7 +60,8 @@ fun buildWordFromOcrCoordinates(
                 val colIndex = (item.x / colWidth).toInt().coerceIn(0, columnCount - 1)
                 val cell = row.getCell(colIndex)
                 cell.removeParagraph(0)
-                cell.addParagraph().createRun().setText(item.text)
+                val p = cell.addParagraph()
+                p.createRun().setText(item.text)
             }
         }
 
