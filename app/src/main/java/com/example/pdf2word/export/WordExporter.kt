@@ -36,11 +36,11 @@ fun createWordWithTextAndImage(
     imageWidthPercent: Double = 0.8
 ) {
     XWPFDocument().use { document ->
-        val p = document.createParagraph()
+        val p = document.addParagraph()
         val run = p.createRun()
         run.setText(text)
 
-        val imgParagraph = document.createParagraph()
+        val imgParagraph = document.addParagraph()
         val imgRun = imgParagraph.createRun()
         val baos = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
@@ -66,12 +66,12 @@ fun createHiddenTableLayout(outputFile: File, bitmap: Bitmap, text: String) {
 
         table.getRow(0).getCell(0).apply {
             removeParagraph(0)
-            createParagraph().createRun().setText(text)
+            addParagraph().createRun().setText(text)
         }
 
         table.getRow(0).getCell(1).apply {
             removeParagraph(0)
-            val p = createParagraph()
+            val p = addParagraph()
             val run = p.createRun()
             val baos = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
@@ -86,7 +86,7 @@ fun createHiddenTableLayout(outputFile: File, bitmap: Bitmap, text: String) {
 
         table.getRow(1).getCell(0).apply {
             removeParagraph(0)
-            createParagraph().createRun().setText("嵌套内容 / Nested")
+            addParagraph().createRun().setText("嵌套内容 / Nested")
         }
 
         FileOutputStream(outputFile).use { document.write(it) }
